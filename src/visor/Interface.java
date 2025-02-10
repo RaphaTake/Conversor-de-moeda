@@ -11,6 +11,12 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import Conversor.Converter.Moeda;
+
+
+
+
+
 
 
 
@@ -23,6 +29,7 @@ public class Interface extends JFrame {
 	private JTextField Txtf2;
 	private JComboBox<String> cb1;
 	private JComboBox<String> cb2;
+	
 	
 	
 	public Interface() {
@@ -46,22 +53,23 @@ public class Interface extends JFrame {
 		contentPane.add(Txtf2);
 		Txtf2.setEditable(false);
 
-		JComboBox<String> cb1 = new JComboBox<>();
+		JComboBox<Moeda> cb1 = new JComboBox<>();
 		cb1.setBounds(118, 57, 136, 22);
 		contentPane.add(cb1);
-		cb1.addItem("USD");
-		cb1.addItem("BRL");
-		cb1.addItem("EUR");
-		cb1.addItem("ARS");
+		cb1.addItem(new Moeda("Dólar", "USD" ));
+		cb1.addItem(new Moeda("Real", "BRL"));
+		cb1.addItem(new Moeda("Euro", "EUR"));
+		cb1.addItem(new Moeda("Peso Argentino", "ARS"));
 		
 		
-		JComboBox<String> cb2 = new JComboBox<>();
+		
+		JComboBox<Moeda> cb2 = new JComboBox<>();
 		cb2.setBounds(118, 175, 136, 22);
 		contentPane.add(cb2);
-		cb2.addItem("USD");
-		cb2.addItem("BRL");
-		cb2.addItem("EUR");
-		cb2.addItem("ARS");
+		cb2.addItem(new Moeda("Dólar", "USD" ));
+		cb2.addItem(new Moeda("Real", "BRL"));
+		cb2.addItem(new Moeda("Euro", "EUR"));
+		cb2.addItem(new Moeda("Peso Argentino", "ARS"));
 		
 		
 		
@@ -78,8 +86,11 @@ public class Interface extends JFrame {
 					 
 						Double valor = Double.parseDouble(Txtf1.getText());
 						
-						String Moeda1 = (String) cb1.getSelectedItem();
-						String Moeda2 = (String) cb2.getSelectedItem();
+						Moeda MoedaSelecionar1 = (Moeda) cb1.getSelectedItem();
+						Moeda MoedaSelecionar2 = (Moeda) cb2.getSelectedItem();
+						
+						String Moeda1 = MoedaSelecionar1.MoedaValor();
+						String Moeda2 = MoedaSelecionar2.MoedaValor();
 						
 						//converte o valor que o usuario te pedindo
 						
