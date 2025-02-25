@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 public class ExchangeAPI {
-    private static final String API_URL = "https://v6.exchangerate-api.com/v6/ecd634c01a7991749b3d6d6f/latest/USD";
+    private static final String API_URL = "https://v6.exchangerate-api.com/v6/key/latest/USD";
     private static final OkHttpClient client = new OkHttpClient();
 
     
